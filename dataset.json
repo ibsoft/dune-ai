@@ -1,11 +1,11 @@
 [
     {
-      "request": "IP address of John Bouhras",
+      "request": "IP address of John",
       "response": "192.168.1.204"
     },
     {
       "request": "What is your name?",
-      "response": "My name is J.A.R.V.I.S (Just a Rather Very Intelligent System)"
+      "response": "My name is JARVIS (Just a Rather Very Intelligent System)"
     },
     {
       "request": "Who works at Unixfor?",
