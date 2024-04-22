@@ -81,11 +81,11 @@ def speak(text):
     engine.setProperty('volume', 0.9)  # Volume 0-1
 
     # Speak the text
-    engine.say(text)
+    engine.say(text.lower())
     engine.runAndWait()
 
 
-def interact_with_chatbot(model, tokenizer, dataset, max_length=1024, temperature=0.3, do_sample=True):
+def interact_with_chatbot(model, tokenizer, dataset, max_length=1024, temperature=0.4, do_sample=True):
     print("Let's GO! (say 'quit' to exit)")
     while True:
         # Listen for user input
@@ -123,4 +123,4 @@ dataset = load_dataset_from_json("dataset.json")
 # Interaction with the chatbot
 tokenizer_instance = GPT2Tokenizer.from_pretrained("fine_tuned_model")
 interact_with_chatbot(model, tokenizer_instance, dataset,
-                      temperature=0.3, do_sample=True)
+                      temperature=0.4, do_sample=True)
