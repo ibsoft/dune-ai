@@ -16,9 +16,12 @@ tokenizer.pad_token = tokenizer.eos_token  # Set padding token to eos_token
 model = GPT2LMHeadModel.from_pretrained('gpt2')
 
 # Tokenize input sequences
-inputs = tokenizer(responses, return_tensors='pt', truncation=True, padding=True)
+inputs = tokenizer(responses, return_tensors='pt',
+                   truncation=True, padding=True)
 
 # Fine-tune the model
+
+
 class CustomDataset(torch.utils.data.Dataset):
     def __init__(self, tokenized_data):
         self.tokenized_data = tokenized_data
@@ -28,6 +31,7 @@ class CustomDataset(torch.utils.data.Dataset):
 
     def __getitem__(self, idx):
         return {key: tensor[idx] for key, tensor in self.tokenized_data.items()}
+
 
 # Create custom dataset
 dataset = CustomDataset(inputs)
@@ -58,7 +62,8 @@ question = "What is a CPU?"
 input_ids = tokenizer.encode(question, return_tensors='pt')
 
 # Generate response
-output = model.generate(input_ids, max_length=100, num_return_sequences=1, pad_token_id=tokenizer.eos_token_id)
+output = model.generate(input_ids, max_length=100,
+                        num_return_sequences=1, pad_token_id=tokenizer.eos_token_id)
 
 # Decode and print the response
 response = tokenizer.decode(output[0], skip_special_tokens=True)

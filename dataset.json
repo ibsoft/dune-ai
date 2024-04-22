@@ -1,7 +1,7 @@
 [
     {
-      "request": "Πως είναι το όνομα σου;",
-      "response": "My name is J.A.R.V.I.S (Just a Rather Very Intelligent System)"
+      "request": "IP address of John Bouhras",
+      "response": "192.168.1.204"
     },
     {
       "request": "What is your name?",
